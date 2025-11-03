@@ -27,3 +27,33 @@ Install the required Python libraries using `pip`:
 
 ```bash
 pip install PyPDF2 pdf2image Pillow
+```
+---
+## 2. Poppler (Required for PDF to JPG Conversion)
+
+The **`pdf2image`** library requires the external **Poppler** utility to render PDFs into images.
+
+| OS | Installation Instructions |
+| :--- | :--- |
+| **Windows** | 1. Download a pre-compiled binary (e.g., from the [Poppler for Windows GitHub releases page](https://github.com/oschwartz10612/poppler-windows/releases/)). <br> 2. Extract the contents (e.g., to `C:\poppler-25.07.0`). <br> 3. **Crucially, update the `POPPLER_PATH` variable** near the top of the `pdf_converter.py` script to point to the `bin` folder within your Poppler directory. <br> *Example:* `POPPLER_PATH = r"C:\poppler-25.07.0\Library\bin"` |
+| **Linux (Debian/Ubuntu)** | Run: `sudo apt-get install poppler-utils` |
+| **macOS (Homebrew)** | Run: `brew install poppler` |
+
+---
+
+## 🚀 Usage
+
+Execute the script from your command line using the following syntax patterns:
+
+### Mode 1: Batch PDF Page Extraction
+
+Merges specified pages into a single PDF.
+
+```bash
+python pdf_converter.py <input_pdf_path> "<page_numbers_or_ranges>"
+
+# Example: Extract pages 1, 5, and the range 10 through 12.
+python pdf_converter.py report.pdf "1, 5, 10-12"
+
+
+
