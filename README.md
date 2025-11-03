@@ -45,7 +45,7 @@ The **`pdf2image`** library requires the external **Poppler** utility to render 
 
 Execute the script from your command line using the following syntax patterns:
 
-### Mode 1: Batch PDF Page Extraction
+### Mode 1 : Batch PDF Page Extraction
 
 Merges specified pages into a single PDF.
 
@@ -54,6 +54,27 @@ python pdf_converter.py <input_pdf_path> "<page_numbers_or_ranges>"
 
 # Example: Extract pages 1, 5, and the range 10 through 12.
 python pdf_converter.py report.pdf "1, 5, 10-12"
+```
 
+### Mode 2 : PDF to JPG Conversion
 
+Converts every page of the PDF to a separate JPG file.
+
+```bash
+python pdf_converter.py <input_pdf_path> to_jpg
+
+# Example: Convert all pages of handbook.pdf to JPG.
+python pdf_converter.py handbook.pdf to_jpg
+```
+
+### Mode 3 : Image Folder to PDF
+
+Merges all supported images in a folder into one PDF file.
+
+```bash
+python pdf_converter.py <image_folder_path> from_images
+
+# Example: Convert all images in the Scans folder to a PDF.
+python pdf_converter.py ./Scans from_images
+```
 
